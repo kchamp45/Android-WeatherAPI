@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">WeatherAPI</string>
+    <string name="zip_code_hint" />
+</resources>
