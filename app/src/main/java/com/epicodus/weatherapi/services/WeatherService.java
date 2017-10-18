@@ -1,9 +1,7 @@
 package com.epicodus.weatherapi.services;
 
-import android.util.Log;
-
-import com.epicodus.weatherapi.Constants;
-import com.epicodus.weatherapi.Weather;
+import com.epicodus.weatherapi.models.Constants;
+import com.epicodus.weatherapi.models.Weather;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -47,17 +45,14 @@ public class WeatherService {
                  JSONObject eachDayJSON = listJSON.getJSONObject(i);
 
                  int temperature = eachDayJSON.getJSONObject("main").getInt("temp");
+                 int humidity = eachDayJSON.getJSONObject("main").getInt("humidity");
+                 int wind = eachDayJSON.getJSONObject("wind").getInt("speed");
 
-                 ArrayList<String> climate = new ArrayList<>();
-                 JSONArray weatherJSON = eachDayJSON.getJSONArray("weather");
-
-                 for (int y = 0; y < weatherJSON.length(); y++) {
-                     climate.add(weatherJSON.getJSONObject(y).getString("description"));
-                 }
-                 Weather forecast = new Weather(temperature, climate);
+                 Weather forecast = new Weather(temperature, humidity, wind);
                  forecasts.add(forecast);
              }
          }
+
          catch (IOException e){
              e.printStackTrace();
          }

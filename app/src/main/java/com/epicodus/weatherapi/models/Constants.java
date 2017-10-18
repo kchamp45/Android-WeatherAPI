@@ -1,4 +1,6 @@
-package com.epicodus.weatherapi;
+package com.epicodus.weatherapi.models;
+
+import com.epicodus.weatherapi.BuildConfig;
 
 /**
  * Created by Guest on 10/17/17.
